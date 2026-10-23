@@ -11,7 +11,7 @@ function Header() {
             <nav aria-label="Main navigation">
                 <ul className="store-nav">
                     <li className="nav-item">
-                        <a href="/homepage">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li className="nav-item">
                         <a href="/products">Products</a>
