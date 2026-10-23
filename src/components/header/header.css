@@ -15,6 +15,7 @@
 
 .lost-found-logo {
   flex: 0 1 auto;
+  height: 60px;
 }
 
 .lost-found-logo a {
@@ -29,12 +30,7 @@
   outline-offset: 4px;
 }
 
-.saber-logo {
-  display: block;
-  width: clamp(120px, 16vw, 195px);
-  max-width: 100%;
-  height: auto;
-}
+
 
 .store-nav {
   display: flex;
@@ -78,6 +74,19 @@
   background: #8ecae6;
   color: #000;
 }
+
+.nav-item-sign-up {
+  border-color: #8ecae6;
+  border-width: 2px;
+  background: #8ecae6;
+  border-radius: 999px;
+}
+
+/* .nav-item-log-in {
+  background: #eaf7fc;
+  color: #000;
+  border-radius: 999px;
+} */
 
 @media (max-width: 560px) {
   .find-header {

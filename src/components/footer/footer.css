@@ -1,0 +1,126 @@
+.store-footer {
+  padding: 52px clamp(20px, 5vw, 72px) 20px;
+  border-top: 3px solid #8ecae6;
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(142, 202, 230, 0.2), transparent 52%),
+    linear-gradient(180deg, #ffffff 0%, #f3fbff 100%);
+  color: #111111;
+  text-align: left;
+  box-shadow: 0 -8px 24px rgba(17, 17, 17, 0.06);
+}
+
+.footer-inner {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  padding-bottom: 38px;
+}
+
+.footer-column {
+  min-width: 0;
+}
+
+.footer-column h2 {
+  margin: 0 0 18px;
+  color: #0d3b66;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.footer-column p,
+.footer-column address,
+.footer-column a {
+  margin: 0;
+  color: #1f2933;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.footer-column address {
+  font-style: normal;
+}
+
+.footer-column a {
+  color: #0d3b66;
+  text-decoration-color: rgba(142, 202, 230, 0.8);
+  text-underline-offset: 4px;
+  transition: color 160ms ease;
+}
+
+.footer-column a:hover {
+  color: #0b7ea6;
+}
+
+.footer-column a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid #8ecae6;
+  outline-offset: 4px;
+}
+
+.footer-column .footer-credit {
+  margin-top: 20px;
+  color: #4a5967;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(17, 17, 17, 0.1);
+  color: #4a5967;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.footer-bottom span:first-child {
+  color: #111111;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 700px) {
+  .store-footer {
+    padding-top: 40px;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .footer-content {
+    padding-bottom: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-column a {
+    transition: none;
+  }
+}
