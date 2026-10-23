@@ -3,7 +3,7 @@ import "./homepage.css";
 function Homepage() {
     return (
         <div className="homepage">
-            <h2>Homepage</h2>
+            <h2>Homepage web</h2>
             <p>This is the homepage of the website.</p>
         </div>
     );
