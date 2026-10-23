@@ -1,14 +1,28 @@
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
-import Homepage from './components/homepage/homepage';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
+import Homepage from "./components/homepage/homepage";
+import Login from "./components/login/login";
+import Signup from "./components/signup/signup";
+
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Homepage />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
