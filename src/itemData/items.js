@@ -1,0 +1,118 @@
+export const schools = [
+    {
+        name: "Franklin High School",
+        items: [
+            {
+                id: 1,
+                name: "Blue water bottle",
+                detail: "Found near the gym · October 21",
+                category: "Water bottle",
+                image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85",
+                alt: "Blue reusable water bottle",
+            },
+            {
+                id: 2,
+                name: "Red running shoes",
+                detail: "Found in the cafeteria · October 19",
+                category: "Clothing",
+                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85",
+                alt: "Red running shoe",
+            },
+            {
+                id: 3,
+                name: "Navy school backpack",
+                detail: "Found by the front office · October 18",
+                category: "Bags",
+                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85",
+                alt: "Navy backpack",
+            },
+            {
+                id: 4,
+                name: "Wireless headphones",
+                detail: "Found in room 204 · October 17",
+                category: "Electronics",
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85",
+                alt: "Wireless headphones",
+            },
+            {
+                id: 5,
+                name: "Digital wristwatch",
+                detail: "Found in the library · October 16",
+                category: "Accessories",
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85",
+                alt: "Wristwatch",
+            },
+            {
+                id: 6,
+                name: "Green lunch bag",
+                detail: "Found near the playground · October 15",
+                category: "Bags",
+                image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85",
+                alt: "Green lunch bag",
+            },
+        ],
+    },
+    {
+        name: "Franklin Middle School",
+        items: [
+            {
+                id: 1,
+                name: "Yellow rain jacket",
+                detail: "Found by the main entrance · October 20",
+                category: "Clothing",
+                image: "https://images.unsplash.com/photo-1544923246-77307dd654cb?auto=format&fit=crop&w=900&q=85",
+                alt: "Yellow rain jacket",
+            },
+            {
+                id: 2,
+                name: "Black pencil case",
+                detail: "Found in room 112 · October 18",
+                category: "School supplies",
+                image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=85",
+                alt: "Black pencil case with writing supplies",
+            },
+        ],
+    },
+    {
+        name: "Country Dale Elementary",
+        items: [
+            {
+                id: 1,
+                name: "Purple knit hat",
+                detail: "Found on the playground · October 22",
+                category: "Clothing",
+                image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?auto=format&fit=crop&w=900&q=85",
+                alt: "Purple knit hat",
+            },
+            {
+                id: 2,
+                name: "Blue lunchbox",
+                detail: "Found in the cafeteria · October 20",
+                category: "Lunch items",
+                image: "https://images.unsplash.com/photo-1607260552297-4c6a7f3f8f6d?auto=format&fit=crop&w=900&q=85",
+                alt: "Blue lunchbox",
+            },
+        ],
+    },
+    {
+        name: "Pleasant View Elementary",
+        items: [
+            {
+                id: 1,
+                name: "Striped scarf",
+                detail: "Found outside the library · October 21",
+                category: "Clothing",
+                image: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=900&q=85",
+                alt: "Striped scarf",
+            },
+            {
+                id: 2,
+                name: "Red school backpack",
+                detail: "Found near the school office · October 19",
+                category: "Bags",
+                image: "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?auto=format&fit=crop&w=900&q=85",
+                alt: "Red school backpack",
+            },
+        ],
+    },
+];
