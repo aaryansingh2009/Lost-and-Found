@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
-import { schools } from "../../itemData/items";
 import "./products.css";
+
+const schools = [
+    { name: "Ben Franklin Elementary", loadItems: () => import("../../itemData/benfranklin") },
+    { name: "Country Dale Elementary", loadItems: () => import("../../itemData/countrydale") },
+    { name: "Pleasant View Elementary", loadItems: () => import("../../itemData/pleasantview") },
+    { name: "Robinwood Elementary", loadItems: () => import("../../itemData/robinwood") },
+    { name: "Southwood Glen Elementary", loadItems: () => import("../../itemData/southwoodglen") },
+];
 
 function Products() {
     const [school, setSchool] = useState("");
+    const [schoolItems, setSchoolItems] = useState([]);
+    const [itemsLoading, setItemsLoading] = useState(false);
+    const [itemsError, setItemsError] = useState("");
     const [search, setSearch] = useState("");
     const [selectedItem, setSelectedItem] = useState(null);
     const [notice, setNotice] = useState("");
@@ -13,6 +23,48 @@ function Products() {
         teacher: "",
         school: "",
     });
+
+    useEffect(() => {
+        if (!school) {
+            setSchoolItems([]);
+            setItemsLoading(false);
+            return undefined;
+        }
+
+        const selectedSchool = schools.find((schoolOption) => schoolOption.name === school);
+        if (!selectedSchool) {
+            setSchoolItems([]);
+            setItemsLoading(false);
+            return undefined;
+        }
+
+        let isCurrentSchool = true;
+        setItemsLoading(true);
+        setItemsError("");
+
+        selectedSchool.loadItems()
+            .then((module) => {
+                if (isCurrentSchool) {
+                    setSchoolItems(module.default);
+                }
+            })
+            .catch((error) => {
+                if (isCurrentSchool) {
+                    console.error(`Unable to load items for ${school}.`, error);
+                    setSchoolItems([]);
+                    setItemsError(`We couldn't load the lost and found items for ${school}. Please try selecting the school again.`);
+                }
+            })
+            .finally(() => {
+                if (isCurrentSchool) {
+                    setItemsLoading(false);
+                }
+            });
+
+        return () => {
+            isCurrentSchool = false;
+        };
+    }, [school]);
 
     useEffect(() => {
         if (!selectedItem) {
@@ -57,8 +109,7 @@ function Products() {
         setSelectedItem(null);
     }
 
-    const selectedSchool = schools.find((schoolOption) => schoolOption.name === school);
-    const visibleItems = (selectedSchool?.items || []).filter((item) =>
+    const visibleItems = schoolItems.filter((item) =>
         `${item.name} ${item.detail} ${item.category}`.toLowerCase().includes(search.toLowerCase().trim())
     );
 
@@ -104,7 +155,7 @@ function Products() {
                                 <h2>Recently found items</h2>
                                 <p>Browse the items below and submit a request to claim one.</p>
                             </div>
-                            <span className="item-count">{visibleItems.length} items</span>
+                            <span className="item-count">{itemsLoading ? "Loading…" : `${visibleItems.length} items`}</span>
                         </div>
 
                         <div className="instructions">
@@ -131,7 +182,11 @@ function Products() {
 
                         {notice && <p className="success-notice" role="status">{notice}</p>}
 
-                        {visibleItems.length > 0 ? (
+                        {itemsLoading ? (
+                            <p className="empty-results" role="status">Loading this school’s lost and found items…</p>
+                        ) : itemsError ? (
+                            <p className="empty-results" role="alert">{itemsError}</p>
+                        ) : visibleItems.length > 0 ? (
                             <div className="item-grid">
                                 {visibleItems.map((item) => (
                                     <article className="item-card" key={item.id}>
